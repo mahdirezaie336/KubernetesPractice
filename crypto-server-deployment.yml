@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: crypto-server
+  name: crypto-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crypto-server
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: crypto-server
+    spec:
+      containers:
+      - image: mahdirezaie336/crypto-server
+        name: crypto-server
+        resources: {}
+        env:
+          - name: API_KEY
+            valueFrom:
+              configMapKeyRef:
+                name: crypto-server
+                key: API_KEY
+          - name: MINUTES_TO_LIVE
+            valueFrom:
+              configMapKeyRef:
+                name: crypto-server
+                key: MINUTES_TO_LIVE
+          - name: PORT_NUMBER
+            valueFrom:
+              configMapKeyRef:
+                name: crypto-server
+                key: PORT_NUMBER
+          - name: DEFAULT_CRYPTO
+            valueFrom:
+              configMapKeyRef:
+                name: crypto-server
+                key: DEFAULT_CRYPTO
+          - name: API_ADDRESS
+            valueFrom:
+              configMapKeyRef:
+                name: crypto-server
+                key: API_ADDRESS
+status: {}
