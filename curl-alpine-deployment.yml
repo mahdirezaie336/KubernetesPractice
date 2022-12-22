@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: curl-alpine
+  name: curl-alpine
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: curl-alpine
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: curl-alpine
+    spec:
+      containers:
+      - image: mahdirezaie336/curl-alpine
+        name: curl-alpine
+        command: ["bin/sleep"]
+        args: ["infinite"]
+        resources: {}
+status: {}
