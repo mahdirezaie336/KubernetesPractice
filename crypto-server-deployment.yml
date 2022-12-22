@@ -47,4 +47,9 @@ spec:
               configMapKeyRef:
                 name: crypto-server
                 key: API_ADDRESS
+          - name: REDIS_SERVER
+            valueFrom:
+              configMapKeyRef:
+                name: crypto-server
+                key: REDIS_SERVER
 status: {}
