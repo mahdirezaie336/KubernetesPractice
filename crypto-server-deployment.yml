@@ -6,7 +6,7 @@ metadata:
     app: crypto-server
   name: crypto-server
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: crypto-server
